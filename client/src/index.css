@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-slate-900 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'ss01';
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-accent-soft text-accent-deep;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent/40 ring-offset-1 ring-offset-white;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-hairline bg-surface shadow-card;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium transition
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent px-3 py-2 text-white shadow-card hover:bg-accent-deep active:scale-[0.985];
+  }
+
+  .btn-ghost {
+    @apply btn border border-hairline bg-surface px-3 py-2 text-slate-700 hover:bg-slate-50 hover:text-slate-900;
+  }
+
+  .btn-subtle {
+    @apply btn px-2 py-1.5 text-slate-500 hover:bg-slate-100 hover:text-slate-900;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-2xs font-semibold;
+  }
+
+  .nav-item {
+    @apply flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium text-slate-600
+      transition hover:bg-white hover:text-slate-900;
+  }
+
+  .nav-item-active {
+    @apply bg-white text-slate-900 shadow-card ring-1 ring-hairline;
+  }
+
+  .label-caps {
+    @apply text-2xs font-semibold uppercase tracking-[0.14em] text-slate-400;
+  }
+
+  .skel {
+    @apply relative overflow-hidden rounded-md bg-slate-100;
+  }
+
+  .skel::after {
+    @apply absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/70 to-transparent content-[''];
+    transform: translateX(-100%);
+  }
+
+  .scroller {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+
+  .scroller::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scroller::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-300/80;
+  }
+
+  .scroller::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .prose-mail {
+    @apply whitespace-pre-line text-[13.5px] leading-relaxed text-slate-700;
+  }
+}

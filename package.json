@@ -1,0 +1,20 @@
+{
+  "name": "relay-ai-inbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Relay — AI-powered personal assistant email management dashboard (Assistant command center + minimal Client view).",
+  "scripts": {
+    "postinstall": "npm --prefix server install --no-audit --no-fund && npm --prefix client install --no-audit --no-fund",
+    "dev": "concurrently -k -n server,client -c magenta,cyan \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
